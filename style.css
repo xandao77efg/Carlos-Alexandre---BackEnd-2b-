@@ -1,0 +1,752 @@
+
+/* ========================================
+   🕷️ TEMA HOMEM-ARANHA
+   Vermelho • Azul • Preto
+======================================== */
+
+:root {
+    --primary-color: #e62429;
+    --primary-hover: #b8141b;
+
+    --danger-color: #e62429;
+    --danger-hover: #a90f17;
+
+    --edit-color: #0877d1;
+    --edit-hover: #07549a;
+
+    --bg-color: #07111f;
+    --surface-color: #101d30;
+
+    --text-main: #f4f7fc;
+    --text-muted: #a8b8cc;
+
+    --border-color: #263b55;
+
+    --radius: 14px;
+}
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    padding: 35px 20px;
+
+    background-color: var(--bg-color);
+
+    background-image:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(230, 36, 41, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(0, 112, 255, 0.20),
+            transparent 35%
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0,
+            transparent 49px,
+            rgba(255, 255, 255, 0.025) 50px,
+            transparent 51px
+        );
+
+    background-attachment: fixed;
+}
+
+/* ========================================
+   CONTAINER PRINCIPAL
+======================================== */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    height: fit-content;
+
+    background: rgba(12, 24, 42, 0.97);
+
+    border: 1px solid rgba(51, 110, 170, 0.45);
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(0, 100, 255, 0.08);
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+header {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 50% 130%,
+            rgba(0, 114, 255, 0.55),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #8e1018 0%,
+            #e62429 48%,
+            #102b50 100%
+        );
+
+    color: white;
+    padding: 42px 25px;
+    text-align: center;
+
+    border-bottom: 3px solid #1687ff;
+}
+
+/* Efeito decorativo inspirado em teias */
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        repeating-conic-gradient(
+            from 0deg at 50% 0%,
+            transparent 0deg 14deg,
+            rgba(255, 255, 255, 0.10) 14.3deg 14.7deg,
+            transparent 15deg 30deg
+        );
+
+    opacity: 0.7;
+}
+
+header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 3px 0 #7e1015,
+        0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+header h1::before {
+    content: "🕷️ ";
+}
+
+header p {
+    color: #f1f6ff;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Botão de PDF no cabeçalho */
+
+header button {
+    margin-top: 20px !important;
+
+    background: #101d30 !important;
+    color: white !important;
+
+    border: 1px solid #54aaff !important;
+    border-radius: 9px;
+
+    box-shadow: 0 0 15px rgba(0, 119, 255, 0.25);
+
+    transition: 0.25s ease;
+}
+
+header button:hover {
+    background: #0877d1 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 0 22px rgba(0, 119, 255, 0.5);
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+======================================== */
+
+main {
+    padding: 30px;
+
+    display: grid;
+    grid-template-columns: minmax(250px, 0.85fr) minmax(0, 1.7fr);
+    gap: 25px;
+    align-items: start;
+}
+
+/* ========================================
+   CARTÕES
+======================================== */
+
+.form-section,
+.list-section {
+    min-width: 0;
+
+    background: linear-gradient(
+        145deg,
+        #13243b,
+        #0d192b
+    );
+
+    padding: 24px;
+
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s;
+}
+
+.form-section:hover {
+    border-color: rgba(230, 36, 41, 0.65);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25),
+        0 0 16px rgba(230, 36, 41, 0.08);
+}
+
+.list-section:hover {
+    border-color: rgba(0, 119, 255, 0.65);
+}
+
+/* ========================================
+   TÍTULOS DAS SEÇÕES
+======================================== */
+
+.form-section h2,
+.list-section h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 22px;
+
+    color: #ffffff;
+
+    padding-bottom: 13px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.form-section h2 {
+    border-bottom-color: var(--primary-color);
+}
+
+.list-section h2 {
+    border-bottom-color: #1687ff;
+}
+
+.form-section h2::before {
+    content: "🕸️ ";
+}
+
+.list-section h2::before {
+    content: "🕷️ ";
+}
+
+/* ========================================
+   CAMPOS DO FORMULÁRIO
+======================================== */
+
+.input-group {
+    margin-bottom: 19px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    color: #d8e7fa;
+}
+
+.input-group input,
+.input-group select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+
+    padding: 12px 13px;
+
+    background: #081425;
+    color: #ffffff;
+
+    border: 1px solid #304765;
+    border-radius: 8px;
+
+    font-size: 0.95rem;
+    font-family: inherit;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        background-color 0.2s;
+}
+
+.input-group input::placeholder {
+    color: #71849e;
+}
+
+.input-group select {
+    cursor: pointer;
+}
+
+.input-group select option {
+    background: #101d30;
+    color: white;
+}
+
+/* Foco vermelho e azul */
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #e62429;
+    background-color: #0b192c;
+
+    box-shadow:
+        0 0 0 3px rgba(230, 36, 41, 0.15),
+        0 0 12px rgba(230, 36, 41, 0.12);
+}
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 11px 15px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        border-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+
+    color: white;
+}
+
+button:focus-visible {
+    outline: 3px solid #75baff;
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ========================================
+   AÇÕES DO FORMULÁRIO
+======================================== */
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn-save {
+    flex: 1;
+
+    background: linear-gradient(
+        135deg,
+        #f02b32,
+        #bc111a
+    );
+
+    color: white;
+
+    border: 1px solid #ff666b;
+
+    box-shadow: 0 4px 14px rgba(230, 36, 41, 0.20);
+}
+
+.btn-save:hover {
+    background: linear-gradient(
+        135deg,
+        #ff4148,
+        #e62429
+    );
+
+    box-shadow: 0 0 20px rgba(230, 36, 41, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    background: #26364c;
+    color: #e5edf8;
+
+    border: 1px solid #4b607c;
+}
+
+.btn-cancel:hover {
+    background: #354c68;
+}
+
+/* ========================================
+   BOTÃO DE ATUALIZAR LISTA
+======================================== */
+
+#btn-atualizar {
+    margin-bottom: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #0877d1,
+        #07549a
+    );
+
+    border: 1px solid #52a8ff;
+
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.15);
+}
+
+#btn-atualizar:hover {
+    background: #1687ff;
+    box-shadow: 0 0 17px rgba(0, 119, 255, 0.35);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   MENSAGENS DO SISTEMA
+======================================== */
+
+#mensagem,
+#lista-mensagem {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   TABELA DE ALUNOS
+======================================== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+
+    border: 1px solid #263b55;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: #0c192a;
+}
+
+th,
+td {
+    padding: 13px 12px;
+    text-align: left;
+    vertical-align: middle;
+
+    border-bottom: 1px solid #24364d;
+
+    font-size: 0.88rem;
+}
+
+th {
+    background: linear-gradient(
+        135deg,
+        #9f141c,
+        #63131b
+    );
+
+    color: #ffffff;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+}
+
+td {
+    color: #dce8f7;
+    overflow-wrap: anywhere;
+}
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(25, 48, 75, 0.45);
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 119, 255, 0.12);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ========================================
+   BOTÕES EDITAR E EXCLUIR
+   Compatível com o script.js
+======================================== */
+
+td button {
+    margin: 3px;
+    padding: 8px 11px;
+
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+/* Botão Editar */
+
+td button:first-child {
+    background: linear-gradient(
+        135deg,
+        #1687ff,
+        #07549a
+    );
+
+    border-color: #52a8ff;
+}
+
+td button:first-child:hover {
+    background: #2498ff;
+    box-shadow: 0 0 12px rgba(0, 119, 255, 0.35);
+    transform: translateY(-1px);
+}
+
+/* Botão Excluir */
+
+td button:last-child {
+    background: linear-gradient(
+        135deg,
+        #e62429,
+        #a80e16
+    );
+
+    border-color: #ff555b;
+}
+
+td button:last-child:hover {
+    background: #ff3038;
+    box-shadow: 0 0 12px rgba(230, 36, 41, 0.3);
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   SCROLL DA TABELA
+======================================== */
+
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #081425;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #304765;
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #1687ff;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 1fr;
+        padding: 22px;
+    }
+
+    .form-section,
+    .list-section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px 8px;
+    }
+
+    .container {
+        border-radius: 12px;
+    }
+
+    header {
+        padding: 30px 16px;
+    }
+
+    header h1 {
+        letter-spacing: 1px;
+    }
+
+    main {
+        padding: 14px;
+        gap: 16px;
+    }
+
+    .form-section,
+    .list-section {
+        padding: 16px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        font-size: 0.82rem;
+    }
+
+    td button {
+        width: 100%;
+        margin: 3px 0;
+    }
+}
+
+/* ========================================
+   IMPRESSÃO / SALVAR EM PDF
+======================================== */
+
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 0.5cm;
+    }
+
+    body {
+        display: block;
+        background: white;
+        color: black;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        background: white;
+        color: black;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    header,
+    .form-section,
+    #btn-atualizar,
+    #mensagem,
+    #lista-mensagem,
+    .list-section h2,
+    td button {
+        display: none !important;
+    }
+
+    main {
+        display: block;
+        padding: 0;
+    }
+
+    .list-section {
+        display: block;
+        padding: 0;
+        background: white;
+        color: black;
+        border: none;
+        box-shadow: none;
+    }
+
+    .table-container {
+        overflow: visible;
+        border: none;
+    }
+
+    table {
+        width: 100%;
+        background: white;
+        color: black;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 9px;
+        font-size: 11px;
+        color: black;
+        background: white !important;
+        border: 1px solid #777;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    tr {
+        break-inside: avoid;
+    }
+}
+
+/* ========================================
+   FIM DO TEMA HOMEM-ARANHA
+======================================== */

@@ -1,0 +1,35 @@
+{
+  "alunos": [
+    {
+      "id": 3,
+      "nome": "teste",
+      "email": "teste@hotmail.com",
+      "curso": "Engenharia de Software"
+    },
+    {
+      "id": 4,
+      "nome": "teste",
+      "email": "teste@hotmail.com",
+      "curso": "Ciência da Computação"
+    },
+    {
+      "id": 5,
+      "nome": "TESTE",
+      "email": "teste@hotmail.com",
+      "curso": "Engenharia de Software"
+    },
+    {
+      "id": 6,
+      "nome": "Beatriz bia",
+      "email": "bia@gmail.com",
+      "curso": "Engenharia de Software"
+    },
+    {
+      "id": 7,
+      "nome": "MARIA JOAO DA SILVA",
+      "email": "hevellyndossantos061@gmail.com",
+      "idade": 33,
+      "curso": "Engenharia de Software"
+    }
+  ]
+}
